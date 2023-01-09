@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Satistics_API_client\Satistics_API_client.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Convesys.Kernel.Logging">
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Logging\bin\Debug\net6.0\Convesys.Kernel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Convesys.Kernel.Security">
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Security\bin\Debug\net6.0\Convesys.Kernel.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Convesys.Kernel.Web">
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Web\bin\Debug\net6.0\Convesys.Kernel.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Convesys.Platform.Web.HttpClient">
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Web\Source\Glasswall.HttpClient\bin\Debug\net6.0\Convesys.Platform.Web.HttpClient.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>annotations</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ICertificateValidationConfigurationProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Convesys.Kernel.Configuration">
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Web\bin\Debug\net6.0\Convesys.Kernel.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Convesys.Kernel.Logging">
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Logging\bin\Debug\net6.0\Convesys.Kernel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Convesys.Kernel.Security">
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Security\bin\Debug\net6.0\Convesys.Kernel.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Convesys.Kernel.Validation">
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Validation\bin\Debug\net6.0\Convesys.Kernel.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Convesys.Kernel.Web">
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Web\bin\Debug\net6.0\Convesys.Kernel.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Convesys.Platform.Web.HttpClient">
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Web\Source\Glasswall.HttpClient\bin\Debug\net6.0\Convesys.Platform.Web.HttpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Convesys.Providers.Logging.Microsoft">
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Web\Source\Glasswall.HttpClient\bin\Debug\net6.0\Convesys.Providers.Logging.Microsoft.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
