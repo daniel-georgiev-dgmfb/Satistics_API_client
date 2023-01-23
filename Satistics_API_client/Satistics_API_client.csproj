@@ -26,10 +26,10 @@
       <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Web\bin\Debug\net6.0\Convesys.Kernel.Web.dll</HintPath>
     </Reference>
     <Reference Include="Convesys.Platform.Web.HttpClient">
-      <HintPath>D:\Dan\Software\Convesys\Convesys\Web\Source\Glasswall.HttpClient\bin\Debug\net6.0\Convesys.Platform.Web.HttpClient.dll</HintPath>
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Web\Source\Convesys.HttpClient\bin\Debug\net6.0\Convesys.Platform.Web.HttpClient.dll</HintPath>
     </Reference>
     <Reference Include="Convesys.Providers.Logging.Microsoft">
-      <HintPath>D:\Dan\Software\Convesys\Convesys\Web\Source\Glasswall.HttpClient\bin\Debug\net6.0\Convesys.Providers.Logging.Microsoft.dll</HintPath>
+      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Providers\Convesys.Providers.Logging.Microsoft\bin\Debug\net6.0\Convesys.Providers.Logging.Microsoft.dll</HintPath>
     </Reference>
   </ItemGroup>
 

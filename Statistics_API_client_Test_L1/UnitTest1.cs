@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using BackchannelCertificateValidator = Convesys.Platform.Web.HttpClient.BackchannelCertificateValidator;
 
 namespace Statistics_API_client_Test_L1
 {
