@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Twilight.Kernel.Logging;
 
@@ -23,7 +24,7 @@ namespace Satistics_API_client
 
         public async Task Log(SeverityLevel level, Twilight.Kernel.Logging.EventId eventId, Type eventSource, string message)
         {
-            
+            Debug.WriteLine("Message: {0}, Severity level: {1}", message, level);
         }
 
         public async Task Log(SeverityLevel level, Twilight.Kernel.Logging.EventId eventId, Type eventSource, Guid transactionId, Exception exception)

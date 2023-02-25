@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Twilight.Kernel.Logging;
 using Twilight.Kernel.Spatial;
 using Twilight.Kernel.Web;
 
@@ -16,11 +17,13 @@ namespace Satistics_API_client
         private Twilight.Platform.Web.HttpClient.HttpClient _httpClient;
         private ConfigurationManager _configurationManager;
         private ILocationService _locationService;
-        public SpatialController(Twilight.Platform.Web.HttpClient.HttpClient httpClient, ILocationService locationService, ConfigurationManager configurationManager)
+        private IEventLogger<SpatialController> _logger;
+        public SpatialController(Twilight.Platform.Web.HttpClient.HttpClient httpClient, ILocationService locationService, ConfigurationManager configurationManager, IEventLogger<SpatialController> logger)
         {
             this._httpClient = httpClient;
             this._configurationManager = configurationManager;
             this._locationService = locationService;
+            this._logger = logger;
         }
 
         [HttpPost("euclideandistance")]
@@ -69,8 +72,10 @@ namespace Satistics_API_client
         {
             try
             {
-                var location = await this._locationService.CalculateDistance(Tuple.Create(readingsX, readingsY), Tuple.Create(readingsX1, readingsY1));
-                return location;
+                await this._logger.Log(SeverityLevel.Trace, new EventId(0), typeof(SpatialController), String.Format("Call: {0}, {1}, {2}, {3}", readingsX, readingsY, readingsX1, readingsY1));
+                var distance = await this._locationService.CalculateDistance(Tuple.Create(readingsX, readingsY), Tuple.Create(readingsX1, readingsY1));
+                await this._logger.Log(SeverityLevel.Trace, new EventId(0), typeof(SpatialController), String.Format("Distance: {0}.", distance));
+                return distance;
             }
             
             catch (Exception ex)
