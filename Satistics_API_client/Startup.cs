@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Platform.Common.Location;
 using Twilight.Kernel.Configuration;
 using Twilight.Kernel.Logging;
@@ -25,9 +26,10 @@ namespace Satistics_API_client
         {
             
             services.AddTransient<ICustomConfigurator<IHttpResourceRetriever>, ResourceRetrieverCustomConfigurator>();
-            //services.AddTransient<IBackchannelCertificateValidator, Twilight.Web.HttpClient.BackchannelCertificateValidator>();
+            services.AddTransient<IBackchannelCertificateValidator, Twilight.Platform.Web.HttpClient.BackchannelCertificateValidator>();
             services.AddTransient<ICertificateValidationConfigurationProvider, CertificateValidationConfigurationProvider>();
-            services.AddTransient(typeof(IEventLogger<>),typeof(Twilight.Platform.Logging.Microsoft.Logger<>));
+            services.AddTransient(typeof(IEventLogger<>),typeof(Logger<>));
+            services.AddSingleton<Microsoft.Extensions.Logging.LoggerFactory>();
             services.AddTransient<Twilight.Platform.Web.HttpClient.HttpClient>();
             services.AddTransient<ConfigurationManager>();
             services.AddTransient<ILocationService, LocationService>();
