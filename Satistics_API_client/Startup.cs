@@ -1,11 +1,13 @@
-using Convesys.Kernel.Configuration;
-using Convesys.Kernel.Logging;
-using Convesys.Kernel.Security.Validation;
-using Convesys.Kernel.Web;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Platform.Common.Location;
+using Twilight.Kernel.Configuration;
+using Twilight.Kernel.Logging;
+using Twilight.Kernel.Security.Validation;
+using Twilight.Kernel.Spatial;
+using Twilight.Kernel.Web;
 
 namespace Satistics_API_client
 {
@@ -23,11 +25,12 @@ namespace Satistics_API_client
         {
             
             services.AddTransient<ICustomConfigurator<IHttpResourceRetriever>, ResourceRetrieverCustomConfigurator>();
-            services.AddTransient<IBackchannelCertificateValidator, Convesys.Platform.Web.HttpClient.BackchannelCertificateValidator>();
+            //services.AddTransient<IBackchannelCertificateValidator, Twilight.Web.HttpClient.BackchannelCertificateValidator>();
             services.AddTransient<ICertificateValidationConfigurationProvider, CertificateValidationConfigurationProvider>();
-            services.AddTransient(typeof(IEventLogger<>),typeof(Convesys.Providers.Logging.Microsoft.Logger<>));
-            services.AddTransient<Convesys.Platform.Web.HttpClient.HttpClient>();
+            services.AddTransient(typeof(IEventLogger<>),typeof(Twilight.Platform.Logging.Microsoft.Logger<>));
+            services.AddTransient<Twilight.Platform.Web.HttpClient.HttpClient>();
             services.AddTransient<ConfigurationManager>();
+            services.AddTransient<ILocationService, LocationService>();
             MvcServiceCollectionExtensions.AddControllers(services);
             services.AddRazorPages();
         }

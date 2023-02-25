@@ -1,9 +1,6 @@
-﻿using Convesys.Kernel.Configuration;
-using Convesys.Kernel.Web;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
+using Twilight.Kernel.Configuration;
+using Twilight.Kernel.Web;
 
 namespace Satistics_API_client
 {

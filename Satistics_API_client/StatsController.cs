@@ -1,10 +1,10 @@
-﻿using Convesys.Kernel.Web;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Twilight.Kernel.Web;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,10 +14,10 @@ namespace Satistics_API_client
     [ApiController]
     public class StatsController : ControllerBase
     {
-        private Convesys.Platform.Web.HttpClient.HttpClient _httpClient;
+        private Twilight.Platform.Web.HttpClient.HttpClient _httpClient;
         private ConfigurationManager _configurationManager;
 
-        public StatsController(Convesys.Platform.Web.HttpClient.HttpClient httpClient, ConfigurationManager configurationManager)
+        public StatsController(Twilight.Platform.Web.HttpClient.HttpClient httpClient, ConfigurationManager configurationManager)
         {
             this._httpClient = httpClient;
             this._configurationManager = configurationManager;

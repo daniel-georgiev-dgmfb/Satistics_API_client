@@ -1,6 +1,6 @@
-﻿using Convesys.Kernel.Security.Configuration;
-using Convesys.Kernel.Security.Validation;
-using System;
+﻿using System;
+using Twilight.Kernel.Security.Configuration;
+using Twilight.Kernel.Security.Validation;
 
 namespace Satistics_API_client
 {

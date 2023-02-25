@@ -10,27 +10,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Convesys.Kernel.Configuration">
-      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Web\bin\Debug\net6.0\Convesys.Kernel.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Convesys.Kernel.Logging">
-      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Logging\bin\Debug\net6.0\Convesys.Kernel.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Convesys.Kernel.Security">
-      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Security\bin\Debug\net6.0\Convesys.Kernel.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Convesys.Kernel.Validation">
-      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Validation\bin\Debug\net6.0\Convesys.Kernel.Validation.dll</HintPath>
-    </Reference>
-    <Reference Include="Convesys.Kernel.Web">
-      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Kernel\Convesys.Kernel.Web\bin\Debug\net6.0\Convesys.Kernel.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="Convesys.Platform.Web.HttpClient">
-      <HintPath>D:\Dan\Software\Convesys\Convesys\Web\Source\Convesys.HttpClient\bin\Debug\net6.0\Convesys.Platform.Web.HttpClient.dll</HintPath>
-    </Reference>
-    <Reference Include="Convesys.Providers.Logging.Microsoft">
-      <HintPath>D:\Dan\Software\Convesys\Convesys\Convesys.Platform.Providers\Convesys.Providers.Logging.Microsoft\bin\Debug\net6.0\Convesys.Providers.Logging.Microsoft.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Twilight.Platform.Common.Location" Version="1.0.0" />
+    <PackageReference Include="Twilight.Platform.Kernel.Configuration" Version="1.0.0" />
+    <PackageReference Include="Twilight.Platform.Kernel.Logging" Version="1.0.0" />
+    <PackageReference Include="Twilight.Platform.Kernel.Security" Version="1.0.0" />
+    <PackageReference Include="Twilight.Platform.Kernel.Web" Version="1.0.0" />
+    <PackageReference Include="Twilight.Platform.Web.HttpClient" Version="1.0.1" />
   </ItemGroup>
 
 </Project>

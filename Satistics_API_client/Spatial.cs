@@ -1,10 +1,11 @@
-﻿using Convesys.Kernel.Web;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Twilight.Kernel.Spatial;
+using Twilight.Kernel.Web;
 
 namespace Satistics_API_client
 {
@@ -12,12 +13,14 @@ namespace Satistics_API_client
     [ApiController]
     public class SpatialController : ControllerBase
     {
-        private Convesys.Platform.Web.HttpClient.HttpClient _httpClient;
+        private Twilight.Platform.Web.HttpClient.HttpClient _httpClient;
         private ConfigurationManager _configurationManager;
-        public SpatialController(Convesys.Platform.Web.HttpClient.HttpClient httpClient, ConfigurationManager configurationManager)
+        private ILocationService _locationService;
+        public SpatialController(Twilight.Platform.Web.HttpClient.HttpClient httpClient, ILocationService locationService, ConfigurationManager configurationManager)
         {
             this._httpClient = httpClient;
             this._configurationManager = configurationManager;
+            this._locationService = locationService;
         }
 
         [HttpPost("euclideandistance")]
@@ -55,6 +58,21 @@ namespace Satistics_API_client
                 return testResult;
             }
             //ASSERT
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        [HttpPost("distance")]
+        public async Task<double> GetDistance([FromForm] float readingsX, [FromForm] float readingsY, [FromForm] float readingsX1, [FromForm] float readingsY1)
+        {
+            try
+            {
+                var location = await this._locationService.CalculateDistance(Tuple.Create(readingsX, readingsY), Tuple.Create(readingsX1, readingsY1));
+                return location;
+            }
+            
             catch (Exception ex)
             {
                 throw;

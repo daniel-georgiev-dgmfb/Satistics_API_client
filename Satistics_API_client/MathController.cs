@@ -1,12 +1,10 @@
-using Convesys.Kernel.Web;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Satistics_API_client;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Twilight.Kernel.Web;
 using ConfigurationManager = Satistics_API_client.ConfigurationManager;
 
 [Route("api/math")]
@@ -14,8 +12,8 @@ using ConfigurationManager = Satistics_API_client.ConfigurationManager;
 public class MathController : ControllerBase
 {
     private ConfigurationManager _configurationManager;
-    private Convesys.Platform.Web.HttpClient.HttpClient _httpClient;
-    public MathController(Convesys.Platform.Web.HttpClient.HttpClient httpClient, ConfigurationManager configurationManager)
+    private Twilight.Platform.Web.HttpClient.HttpClient _httpClient;
+    public MathController(Twilight.Platform.Web.HttpClient.HttpClient httpClient, ConfigurationManager configurationManager)
     {
         this._httpClient = httpClient;
         this._configurationManager = configurationManager;
