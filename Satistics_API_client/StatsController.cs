@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Twilight.Kernel.Logging;
 using Twilight.Kernel.Web;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,11 +18,13 @@ namespace Satistics_API_client
     {
         private Twilight.Platform.Web.HttpClient.HttpClient _httpClient;
         private ConfigurationManager _configurationManager;
+        private IEventLogger<StatsController> _logger;
 
-        public StatsController(Twilight.Platform.Web.HttpClient.HttpClient httpClient, ConfigurationManager configurationManager)
+        public StatsController(Twilight.Platform.Web.HttpClient.HttpClient httpClient, ConfigurationManager configurationManager, IEventLogger<StatsController> logger)
         {
             this._httpClient = httpClient;
             this._configurationManager = configurationManager;
+            this._logger = logger;
         }
         
         [HttpPost("kstest")]
@@ -34,7 +38,7 @@ namespace Satistics_API_client
                 //var baseUrl = this._configurationManager["statServerBaseUri"];
                 var baseUrl = new ConfigurationManager()["statServerBaseUri"];
                 var url = String.Format("{0}{1}", baseUrl, "stats/tests/kstest");
-                
+                this._logger.Log<StatsController>(SeverityLevel.Info, new Twilight.Kernel.Logging.EventId(0), this, null, (_, __) => { return string.Empty; });
 #if DEBUG
                 this._httpClient.RequireHttps = false;
 #else
@@ -66,6 +70,7 @@ namespace Satistics_API_client
             //ASSERT
             catch (Exception ex)
             {
+                this._logger.Log<StatsController>(SeverityLevel.Error, new Twilight.Kernel.Logging.EventId(0), this, null, (_, __) => { return __.Message; });
                 throw;
             }
         }

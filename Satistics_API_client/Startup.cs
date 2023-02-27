@@ -24,12 +24,12 @@ namespace Satistics_API_client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.AddLogging(c => c.AddConsole());
             services.AddTransient<ICustomConfigurator<IHttpResourceRetriever>, ResourceRetrieverCustomConfigurator>();
             services.AddTransient<IBackchannelCertificateValidator, Twilight.Platform.Web.HttpClient.BackchannelCertificateValidator>();
             services.AddTransient<ICertificateValidationConfigurationProvider, CertificateValidationConfigurationProvider>();
             services.AddTransient(typeof(IEventLogger<>),typeof(Logger<>));
-            services.AddSingleton<Microsoft.Extensions.Logging.LoggerFactory>();
+            //services.AddSingleton<Microsoft.Extensions.Logging.LoggerFactory>();
             services.AddTransient<Twilight.Platform.Web.HttpClient.HttpClient>();
             services.AddTransient<ConfigurationManager>();
             services.AddTransient<ILocationService, LocationService>();
