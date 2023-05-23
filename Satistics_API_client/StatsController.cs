@@ -196,7 +196,7 @@ namespace Satistics_API_client
         }
 
         [HttpPost("mean")]
-        public async Task<double> MeanPost([FromQuery] string data)
+        public async Task<double> MeanPost([FromForm] string data)
         {
             try
             {

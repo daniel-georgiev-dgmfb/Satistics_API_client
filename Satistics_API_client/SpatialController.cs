@@ -67,8 +67,25 @@ namespace Satistics_API_client
             }
         }
 
+        [HttpPost("location")]
+        public async Task<Tuple<double, double>> GetDistance([FromForm] long readingsX, [FromForm] long readingsY, [FromForm]double r, [FromForm] long readingsX1, [FromForm] long readingsY1, [FromForm]double r1, [FromForm] long readingsX2, [FromForm] long readingsY2, [FromForm] double r2)
+        {
+            try
+            {
+                await this._logger.Log(SeverityLevel.Trace, new EventId(0), typeof(SpatialController), String.Format("Call: {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}", readingsX, readingsY, r, readingsX1, readingsY1, r1, readingsX2, readingsY2, r2));
+                var distance = await this._locationService.GetLocation(Tuple.Create(readingsX, readingsY, r), Tuple.Create(readingsX1, readingsY1, r1), Tuple.Create(readingsX2, readingsY2, r2));
+                await this._logger.Log(SeverityLevel.Trace, new EventId(0), typeof(SpatialController), String.Format("Distance: {0}.", distance));
+                return distance;
+            }
+            
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         [HttpPost("distance")]
-        public async Task<double> GetDistance([FromForm] float readingsX, [FromForm] float readingsY, [FromForm] float readingsX1, [FromForm] float readingsY1)
+        public async Task<double> GetLocation([FromForm] float readingsX, [FromForm] float readingsY, [FromForm] float readingsX1, [FromForm] float readingsY1)
         {
             try
             {
@@ -77,7 +94,7 @@ namespace Satistics_API_client
                 await this._logger.Log(SeverityLevel.Trace, new EventId(0), typeof(SpatialController), String.Format("Distance: {0}.", distance));
                 return distance;
             }
-            
+
             catch (Exception ex)
             {
                 throw;
