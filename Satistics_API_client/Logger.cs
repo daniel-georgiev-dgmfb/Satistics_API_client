@@ -17,7 +17,7 @@ namespace Satistics_API_client
         public void Log<TState>(SeverityLevel logLevel, Twilight.Kernel.Logging.EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
             var severityLevel = this.SeverityToLogLevel(logLevel);
-            this._logger.Log<TState>(severityLevel, new Microsoft.Extensions.Logging.EventId(eventId), state, exception, (s, e) => e.Message);
+            this._logger.Log<TState>(severityLevel, new Microsoft.Extensions.Logging.EventId(eventId), state, exception, (s, e) => e?.Message);
         }
 
         public async Task Log(SeverityLevel logLevel, Twilight.Kernel.Logging.EventId eventId, Type eventSource, Guid transactionId, string message)
