@@ -199,6 +199,7 @@ namespace Satistics_API_client
         {
             try
             {
+                this._logger.Log<StatsController>(SeverityLevel.Info, 0, this, null, (c, e) => String.Format("Mean post called. Parameters: {0}", data));
                 var baseUrl = this._configurationManager["statServerBaseUri"];
                 var url = String.Format("{0}{1}", baseUrl, "stats/funcs/mean");
 
